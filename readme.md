@@ -2,11 +2,11 @@
 
 1. The images that are generated from this repository are Windows Containers, and Docker Desktop needs to be configured to run Windows Containers.
 2. There are two images that need to be created:
-    - The rock web image (Created with the [dockerfile](./Dockerfile)
-    - The sql server image (Created with the steps outlined below)
+    - The rock web image (Created with the [dockerfile](./Dockerfile))
+    - The sql server image (Created with the [steps outlined below](https://github.com/crdschurch/rock-docker-public#how-to-build-the-sql-server-image))
 3. Once both images are created lines 4 and 11 of the [compose](./compose.yml) file need updated with the image names and tags
 ---
-## How to build the rock web image
+## How to build the Rock Web Image
 
 - Open your cli of choice and navigate to the repository that contains the Dockerfile
 - Create a docker network 
@@ -17,7 +17,7 @@
     - The first time this runs may take awhile because Docker needs to pull all of the images. Once it runs the first time it will use the Docker Cache and be much much faster.
 - Update line 11 in the [compose](./compose.yml) file to the image tag you used in the step above (<your dockerhub organization/reponame:tag>)
 ---
-## How to build the SQL Server image
+## How to build the SQL Server Image
 
 - Create the container `docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Password1!" -p 1433:1433 --name sql octopusdeploy/mssql-server-windows-express`
     - The value you put after "SA_PASSWORD=" is the password for the sa account into SQL Server. I would suggest using something stronger than Password1.
@@ -33,7 +33,7 @@
 - Update line 4 of [compose](./compose.yml) to the image tag you used in the step above
 - Stop running container `docker stop <value you used for --name 2 commands ago>`
 ---
-## Standing up the containers
+## Standing up the Containers
 
 - In the same directory as the the compose.yml file run `docker-compose up -d`
     - The `-d` means that you will still be able to use the command line that intiated the docker-compse command. With out the -d the commandline only runs the containers.
