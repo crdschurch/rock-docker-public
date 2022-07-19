@@ -5,7 +5,7 @@
     - The rock web image (Created with the [dockerfile](./Dockerfile))
     - The sql server image (Created with the [steps outlined below](https://github.com/crdschurch/rock-docker-public#how-to-build-the-sql-server-image))
 3. Once both images are created lines 4 and 11 of the [compose](./compose.yml) file need updated with the image names and tags
----
+
 ## How to build the Rock Web Image
 
 - Open your cli of choice and navigate to the repository that contains the Dockerfile
@@ -16,7 +16,7 @@
 - Build the docker image `docker build -t <your dockerhub organization/reponame:tag> . --network "MyPublic"`
     - The first time this runs may take awhile because Docker needs to pull all of the images. Once it runs the first time it will use the Docker Cache and be much much faster.
 - Update line 11 in the [compose](./compose.yml) file to the image tag you used in the step above (<your dockerhub organization/reponame:tag>)
----
+
 ## How to build the SQL Server Image
 
 - Create the container `docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Password1!" -p 1433:1433 --name sql octopusdeploy/mssql-server-windows-express`
@@ -32,14 +32,14 @@
     * i.e `docker commit sql crdschurch/crds-rock-dev-env:db_v1`
 - Update line 4 of [compose](./compose.yml) to the image tag you used in the step above
 - Stop running container `docker stop <value you used for --name 2 commands ago>`
----
+
 ## Standing up the Containers
 
 - In the same directory as the the compose.yml file run `docker-compose up -d`
     - The `-d` means that you will still be able to use the command line that intiated the docker-compse command. With out the -d the commandline only runs the containers.
 - Once the containers are running navigate to `localhost:9000/Start.aspx` or `localhost:9001/Start.aspx` to enable SSL.
 - Follow the steps in the Rock Installer
----
+
 ## Saving your DB
 
 - Once the installer is finished and has added all the tables needed for the Rock to your SQL Server DB you will want to save those changes. 
