@@ -12,7 +12,7 @@
 - Create a docker network 
 `docker network create -d nat --gateway 172.8.128.1 --subnet 172.8.128.0/20 -o com.docker.network.windowsshim.dnsservers=4.4.4.4,8.8.8.8 -o com.docker.network.windowsshim.disable_gatewaydns=true MyPublic`
     - This creates a way for the docker container to connect to the internet and download the .NET 3.5 features needed to run the Rock Installer. The network is called MyPublic.
-    - If you get an error Error response from daemon: plugin "nat" not found make sure docker desktop is **switched to use windows containers**
+    - If you get an error "Error response from daemon: plugin "nat" not found", then make sure docker desktop is **switched to use windows containers**
 - Build the docker image `docker build -t <your dockerhub organization/reponame:tag> . --network "MyPublic"`
     - The first time this runs may take awhile because Docker needs to pull all of the images. Once it runs the first time it will use the Docker Cache and be much much faster.
 - Update line 11 in the [compose](./compose.yml) file to the image tag you used in the step above (<your dockerhub organization/reponame:tag>)
