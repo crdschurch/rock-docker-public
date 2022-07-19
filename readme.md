@@ -2,9 +2,9 @@
 
 1. The images that are generated from this repository are Windows Containers, and Docker Desktop needs to be configured to run Windows Containers.
 2. There are two images that need to be created:
-    - The rock web image (Created with the [dockerfile] ./Dockerfile)
+    - The rock web image (Created with the [dockerfile](./Dockerfile)
     - The sql server image (Created with the steps outlined below)
-3. Once both images are created lines 4 and 11 of the [compose] ./compose.yml file need updated with the image names and tags
+3. Once both images are created lines 4 and 11 of the [compose](./compose.yml) file need updated with the image names and tags
 ---
 ## How to build the rock web image
 
@@ -15,7 +15,7 @@
     - If you get an error Error response from daemon: plugin "nat" not found make sure docker desktop is **switched to use windows containers**
 - Build the docker image `docker build -t <your dockerhub organization/reponame:tag> . --network "MyPublic"`
     - The first time this runs may take awhile because Docker needs to pull all of the images. Once it runs the first time it will use the Docker Cache and be much much faster.
-- Update line 11 in the [compose] ./compose.yml file to the image tag you used in the step above (<your dockerhub organization/reponame:tag>)
+- Update line 11 in the [compose](./compose.yml) file to the image tag you used in the step above (<your dockerhub organization/reponame:tag>)
 ---
 ## How to build the SQL Server image
 
@@ -30,7 +30,7 @@
 - Create a new Database and remember the name. This will be needed when running the Rock Installer
 - Save all the changes you have made to the base image `docker commit <value you used for --name in the command above> <your dockerhub organization/reponame:tag>`
     * i.e `docker commit sql crdschurch/crds-rock-dev-env:db_v1`
-- Update line 4 of [compose] ./compose.yml to the image tag you used in the step above
+- Update line 4 of [compose](./compose.yml) to the image tag you used in the step above
 - Stop running container `docker stop <value you used for --name 2 commands ago>`
 ---
 ## Standing up the containers
