@@ -28,10 +28,11 @@
      - Login: sa
      - Password: <value you put after SA_PASSWORD=> 
 - Create a new Database and remember the name. This will be needed when running the Rock Installer
+- Stop running container `docker stop <value you used for --name above>`
 - Save all the changes you have made to the base image `docker commit <value you used for --name in the command above> <your dockerhub organization/reponame:tag>`
     * i.e `docker commit sql crdschurch/crds-rock-dev-env:db_v1`
 - Update line 4 of [compose](./compose.yml) to the image tag you used in the step above
-- Stop running container `docker stop <value you used for --name 2 commands ago>`
+
 
 ## Standing up the Containers
 
@@ -39,6 +40,8 @@
     - The `-d` means that you will still be able to use the command line that intiated the docker-compse command. With out the -d the commandline only runs the containers.
 - Once the containers are running navigate to `localhost:9000/Start.aspx` or `localhost:9001/Start.aspx` to enable SSL.
 - Follow the steps in the Rock Installer
+    - When adding the Database Server name enter the name from line 17 of the compose file.
+    - Database Name is the database you created inside the sql server container above.
 
 ## Saving your DB
 
