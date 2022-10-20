@@ -1,3 +1,7 @@
+## 📽 Demo Video 📽
+[![Cursor_and_Visual_Studio_Code_-_readme_md_-_rock-docker-public_-_Visual_Studio_Code_-_7_October_2022](https://user-images.githubusercontent.com/508468/196969810-1a0aa1b8-fb80-484a-aee6-312dba3cd2bf.png)](https://www.loom.com/share/73649b62851a4a21a28c59b69e3e68e3)
+
+
 ## Important Notes
 
 1. The images that are generated from this repository are Windows Containers, and Docker Desktop needs to be configured to run Windows Containers.
